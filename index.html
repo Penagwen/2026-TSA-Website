@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Community Resource Hub</title>
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 3D Background canvas -->
+  <canvas id="bg"></canvas>
+
+  <!-- Foreground UI -->
+  <main id="app">
+    <header class="hero">
+      <h1 class="title">Welcome</h1>
+      <div class="underline" aria-hidden="true"></div>
+
+      <div class="search-wrap">
+        <input
+          type="search"
+          id="query"
+          placeholder="Search resources..."
+          autocomplete="off"
+          aria-label="Search resources"
+        />
+      </div>
+    </header>
+
+    <!-- The "gap" is controlled by .gap-visible on .resources-section -->
+    <section id="resourcesSection" class="resources-section gap-visible">
+      <h3 class="resources-title">Resources</h3>
+
+      <div class="resources-grid" id="resources"></div>
+    </section>
+  </main>
+
+  <script src="./background.js"></script>
+  <script src="./resources.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
