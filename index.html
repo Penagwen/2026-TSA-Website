@@ -34,13 +34,96 @@
             </div>
         </header>
 
+        <section id="highlights">
+            <h2 class="section-title">Featured Resources</h2>
+
+            <div class="highlight-grid">
+
+                <!-- Card 1 -->
+                <div class="highlight-card">
+                <div class="hi-icon">📜</div>
+                <h3>History of Spring</h3>
+                <p>Learn about Spring’s past through the local historical museum.</p>
+                <a href="https://springhistoricalmuseum.org/" target="_blank" class="hi-link">
+                    Learn more →
+                </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="highlight-card">
+                <div class="hi-icon">🏘️</div>
+                <h3>Old Town Spring</h3>
+                <p>Explore community events, programs, and local culture downtown.</p>
+                <a href="https://oldtownspring.com/" target="_blank" class="hi-link">
+                    Learn more →
+                </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="highlight-card">
+                <div class="hi-icon">🤝</div>
+                <h3>Spring Nonprofits</h3>
+                <p>Discover nonprofits in Spring and find ways to get involved.</p>
+                <a href="https://greatnonprofits.org/city/spring/TX" target="_blank" class="hi-link">
+                    Learn more →
+                </a>
+                </div>
+
+            </div>
+        </section>
+
+
         <!-- The "gap" is controlled by .gap-visible on .resources-section -->
         <section id="resourcesSection" class="resources-section gap-visible">
-        <h3 class="resources-title">Resources</h3>
+            <h3 class="resources-title">Resources</h3>
 
-        <div class="resources-grid" id="resources"></div>
+            <div class="resources-grid" id="resources"></div>
         </section>
+
+        <section class="suggestion-section">
+            <h2>Suggest a New Resource</h2>
+
+            <form id="suggestionForm" class="suggestion-form" novalidate>
+                <div class="input-group">
+                    <input type="text" id="name" name="name" placeholder=" " required />
+                    <label for="name">Your Name</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder=" " required />
+                    <label for="email">Email Address</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="resource" name="resource" placeholder=" " required />
+                    <label for="resource">Suggested Resource</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="details" name="details" rows="4" placeholder=" " required></textarea>
+                    <label for="details">Details / Description</label>
+                </div>
+
+                <button type="submit" id="submitBtn" class="submit-btn">Submit</button>
+            </form>
+
+            <!-- Success Popup -->
+            <div id="successPopup" class="success-popup" aria-hidden="true">
+                <div class="popup-content">
+                    <div class="checkmark">
+                        <div class="checkmark-stem"></div>
+                        <div class="checkmark-kick"></div>
+                    </div>
+                    <p>Thank you for your submission!</p>
+                </div>
+            </div>
+
+            <!-- Error toast (hidden by default) -->
+            <div id="errorToast" class="error-toast" aria-hidden="true"></div>
+        </section>
+
     </main>
+
 
     <script src="./background.js"></script>
     <script src="./resources.js"></script>

@@ -80,6 +80,72 @@ main#app {
   box-shadow: 0 12px 36px rgba(20,60,120,0.25);
 }
 
+/* Highlight Section */
+#highlights {
+  padding: 80px 5%;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
+}
+
+.highlight-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(12px);
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.2);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 30px rgba(0,0,0,0.35);
+}
+
+.hi-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.highlight-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.highlight-card p {
+  color: #e5e5e5;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.hi-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #75baff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity .2s;
+}
+
+.hi-link:hover {
+  opacity: 0.7;
+}
+
 /* Resources area
    gap-visible -> leave vertical gap to reveal more background (centered)
    gap-hidden -> tighten spacing to remove center gap (used while searching)
@@ -197,6 +263,191 @@ main#app {
   max-width: 720px;
   margin: 18px auto 0 auto;
 }
+
+/* Section Design */
+.suggestion-section {
+  margin-top: 50px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+}
+
+/* Section Title */
+.suggestion-section h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+/* Form Layout */
+.suggestion-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Floating Label Inputs */
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 2px solid #8884;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  resize: none;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: #bbb;
+  pointer-events: none;
+  transition: 0.25s ease;
+  background: transparent;
+}
+
+/* Glow focus effect */
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #56ccf2;
+  box-shadow: 0 0 10px #56ccf288;
+  outline: none;
+}
+
+/* Floating label activation */
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #56ccf2;
+  padding: 0 4px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Submit Button */
+.submit-btn {
+  padding: 14px 20px;
+  background: #56ccf2;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+  color: black;
+  font-weight: 600;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px rgba(86, 204, 242, 0.4);
+}
+
+/* Success Popup */
+.success-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #111;
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 25px rgba(80, 200, 120, 0.4);
+  animation: popIn 0.3s ease;
+}
+
+/* Animated Checkmark */
+.checkmark {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #4caf50;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  position: relative;
+  opacity: 0;
+  animation: checkIn 0.5s 0.1s forwards ease-out;
+}
+
+.checkmark-stem {
+  position: absolute;
+  width: 6px;
+  height: 20px;
+  background: #4caf50;
+  left: 22px;
+  top: 10px;
+  transform: rotate(45deg);
+}
+
+.checkmark-kick {
+  position: absolute;
+  width: 6px;
+  height: 12px;
+  background: #4caf50;
+  left: 14px;
+  top: 22px;
+  transform: rotate(-45deg) translate(-20%, -20%);
+}
+
+/* Popup Animations */
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes checkIn {
+  from { transform: scale(0.3); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ensure placeholder-shown works for floating labels */
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: transparent;
+}
+
+/* Error toast */
+.error-toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 28px;
+  background: rgba(255, 80, 80, 0.95);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  display: none;
+  z-index: 9999;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.45);
+  font-weight: 600;
+}
+
+/* show helpers (used by JS) */
+.success-popup.show { display: flex; }
+.error-toast.show { display: block; }
 
 
 /* responsive tweaks */

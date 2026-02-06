@@ -3,7 +3,9 @@
     const resourcesEl = document.getElementById("resources");
     const queryEl = document.getElementById("query");
     const resourcesSection = document.getElementById("resourcesSection");
-
+    const highlights = document.getElementById("highlights");
+    const form = document.getElementById("suggestionForm");
+    const popup = document.getElementById("successPopup");
 
     function createCardHTML(item) {
         const div = document.createElement("div");
@@ -66,6 +68,7 @@
             // show all + restore gap
             resourcesSection.classList.remove("gap-hidden");
             resourcesSection.classList.add("gap-visible");
+            highlights.style.display = "block";
             renderResources(resourcesData);
             return;
         }
@@ -73,6 +76,7 @@
         // remove the gap (tighten)
         resourcesSection.classList.remove("gap-visible");
         resourcesSection.classList.add("gap-hidden");
+        highlights.style.display = "none";
 
         const filtered = resourcesData.filter((r) => {
             return (
@@ -97,10 +101,38 @@
         }
     });
 
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Show success popup
+        popup.style.display = "flex";
+
+        // Auto-close after 2.5 seconds
+        setTimeout(() => {
+            popup.style.display = "none";
+        }, 2500);
+
+        // Clear the form
+        form.reset();
+    });
+
     // ----------------------------
     // Extra niceties: animate header & initial cards
     // ----------------------------
+    gsap.registerPlugin(ScrollTrigger);
+
     gsap.from(".title", { y: 20, opacity: 0, duration: 0.7, ease: "power3.out" });
     gsap.from(".underline", { scaleX: 0, transformOrigin: "left", duration: 0.7, delay: 0.05 });
     gsap.from("#query", { y: 16, opacity: 0, duration: 0.7, delay: 0.12, ease: "power2.out" });
+    gsap.from(".highlight-card", {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#highlights",
+            start: "top 80%"
+        }
+    });
 })();
