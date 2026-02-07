@@ -119,7 +119,7 @@
     // ----------------------------
     // Extra niceties: animate header & initial cards
     // ----------------------------
-    gsap.registerPlugin(ScrollTrigger);
+    // gsap.registerPlugin(ScrollTrigger);
 
     gsap.from(".title", { y: 20, opacity: 0, duration: 0.7, ease: "power3.out" });
     gsap.from(".underline", { scaleX: 0, transformOrigin: "left", duration: 0.7, delay: 0.05 });
@@ -135,4 +135,32 @@
             start: "top 80%"
         }
     });
+
+    // Tab Switching Logic
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const slider = document.querySelector(".tab-slider");
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+
+            // Remove active from all buttons
+            tabButtons.forEach(b => b.classList.remove("active"));
+
+            // Add active to clicked one
+            btn.classList.add("active");
+
+            // Switch slider mode
+            if (btn.dataset.tab === "docsTab") {
+                slider.classList.remove("show-resources");
+                slider.classList.add("show-docs");
+            } else {
+                slider.classList.remove("show-docs");
+                slider.classList.add("show-resources");
+            }
+    });
+    });
+
+    // Default state
+    slider.classList.add("show-resources");
+
 })();

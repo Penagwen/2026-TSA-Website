@@ -32,6 +32,13 @@
                     aria-label="Search resources"
                 />
             </div>
+            
+            <div class="underline" aria-hidden="true" style="margin-top: 2.5%; width: 50%;"></div>
+
+            <div class="nav-links">
+                <a href="references.html" class="nav-btn">References</a>
+                <a href="about.html" class="nav-btn">About</a>
+            </div>  
         </header>
 
         <section id="highlights">
@@ -43,7 +50,7 @@
                 <div class="highlight-card">
                 <div class="hi-icon">📜</div>
                 <h3>History of Spring</h3>
-                <p>Learn about Spring’s past through the local historical museum.</p>
+                <p>Learn about Spring's past through the local historical museum.</p>
                 <a href="https://springhistoricalmuseum.org/" target="_blank" class="hi-link">
                     Learn more →
                 </a>
@@ -77,8 +84,30 @@
         <section id="resourcesSection" class="resources-section gap-visible">
             <h3 class="resources-title">Resources</h3>
 
-            <div class="resources-grid" id="resources"></div>
+            <!-- Tabs -->
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab="resourcesTab">Resources</button>
+                <button class="tab-btn" data-tab="docsTab">Documentation</button>
+            </div>
+
+            <!-- Sliding Container -->
+            <div class="tab-slider">
+
+                <!-- Normal Resources -->
+                <div class="tab-page active-page" id="resourcesTab">
+                    <div class="resources-grid" id="resources"></div>
+                </div>
+
+                <!-- Documentation Page -->
+                <div class="tab-page" id="docsTab">
+                    <div class="docs-box">
+                        <img src="student-copyright-checklist.jpg" alt="Docs Icon" class="docs-icon" />
+                    </div>
+                </div>
+
+            </div>
         </section>
+
 
         <section class="suggestion-section">
             <h2>Suggest a New Resource</h2>

@@ -456,3 +456,132 @@ main#app {
   #query { width: 92%; }
   .rc-icon { width: 48px; height: 48px; font-size: 18px; }
 }
+
+/* Tab Buttons */
+.tab-bar {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 25px;
+}
+
+.tab-btn {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.tab-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+.tab-btn.active {
+  background: rgba(120,180,255,0.25);
+  border-color: rgba(120,180,255,0.5);
+}
+
+/* Slider Container */
+.tab-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Pages */
+.tab-page {
+  width: 100%;
+  flex-shrink: 0;
+  transition: transform 0.6s ease;
+}
+
+/* Layout side-by-side */
+.tab-slider {
+  display: flex;
+}
+
+/* Default Position */
+.tab-slider.show-resources {
+  transform: translateX(0%);
+  transition: transform 0.6s cubic-bezier(0.22, 0.9, 0.36, 1);
+}
+
+/* Slide Left to Docs */
+.tab-slider.show-docs {
+  transform: translateX(-200%);
+  overflow: visible;
+  transition: transform 0.6s cubic-bezier(0.22, 0.9, 0.36, 1);
+}
+
+/* Docs Box Style */
+/* #docsTab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.docs-box {
+  /* background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 30px;
+  border-radius: 18px;
+  text-align: left; */
+  /* width: 750px; */
+
+  margin-left: 120%;
+  /* transform: translate(-50%, 0%); */
+}
+
+.docs-icon {
+  width: 750px;
+  height: auto;
+  display: block;
+  margin: auto;
+  border-radius: 16px;
+}
+
+.nav-links {
+  margin-top: 18px;
+}
+
+.nav-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.nav-btn:hover {
+  transform: translateY(-3px);
+  background: rgba(120,180,255,0.25);
+}
+
+.refs-list {
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.refs-list li {
+  margin-bottom: 16px;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.refs-list a {
+  color: #75baff;
+  text-decoration: none;
+}
+
+.refs-list a:hover {
+  text-decoration: underline;
+}
